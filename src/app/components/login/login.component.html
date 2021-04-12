@@ -1,0 +1,47 @@
+<section id="login" class="mb-5 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-5 mx-auto">
+        <div class="card_login">
+          <div class="card">
+            <div class="card-body text-center">
+                <form [formGroup]="loginForm" (ngSubmit)="onLogin()">              
+                <h1 class="h3 mb-3 font-weight-normal" *ngIf="!isError">Login</h1>
+                <div class="alert alert-danger" role="alert" *ngIf="isError">
+                  Datos invalidos!
+                </div>
+
+                <div class="form-group" >
+                    <label for="firstName">Usuario:</label>
+                    <input  formControlName="firstName" placeholder="Nombre" 
+                    name="firstName" class="form-control" id="firstName" required minlength="3">
+                  </div>                 
+                  <div  *ngIf="loginForm.get('firstName').touched && loginForm.get('firstName').errors" class="alert alert-danger">
+
+                    <div *ngIf="loginForm.get('firstName').errors['minlength']">
+                          Debe tener una longitud de al menos 6 caracteres
+                        </div> 
+                        <div *ngIf="loginForm.get('firstName').errors['required']">
+                          El campo es obligatorio
+                        </div>                    
+                  </div>
+
+                  <div class="form-group">
+                      <label for="lastName">Password:</label>
+                      <input type="password" formControlName="lastName" placeholder="Password" name="lastName" class="form-control" id="lastName" required>
+                    </div>                  
+
+                    <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>                   
+                    
+                          
+                      
+                   
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

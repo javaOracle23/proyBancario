@@ -1,0 +1,81 @@
+ <div class="col-xs-100 col-sm-100 col-md-100 mx-auto">   
+<div class="modal" id="myModal">
+         
+    <div class="modal-dialog modal-lg">       
+      <div class="modal-content"> 
+              
+              <div class="modal-header">  
+                  <h5 class="modal-title" id="exampleModalLabel">{{!this.serviceTarjeta.selectedTarjetaCredito.id ? 'Editar cliente' : 'Editar cliente'}}</h5>  
+      
+     
+      </div>
+      <div class="modal-body">                 
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">    
+                  <input type="hidden" formControlName="id" 
+                   name="id" class="form-control" id="id" value={{this.serviceTarjeta.selectedTarjetaCredito.id}}> 
+
+<div class="row">
+    
+    <div class="col-md-5">
+      <label for="nombres">Nombres:</label>
+      <input formControlName="nombres" placeholder="Nombres" name="nombres" class="form-control" id="nombres" required value="{{this.serviceCliente.selectedCliente.nombres}}"  >
+    </div>
+
+ <div class="col-md-5">
+      <label for="apellidos">Apellidos:</label>
+      <input formControlName="apellidos" placeholder="Apellidos" name="apellidos" class="form-control" id="apellidos" required value="{{this.serviceCliente.selectedCliente.apellidos}}">
+    </div>
+
+    <div class="col-md-5">
+      <label for="identificacion">Identificacion:</label>
+      <input formControlName="identificacion" placeholder="Identificacion" name="identificacion" class="form-control" id="identificacion" required
+      value="{{this.serviceCliente.selectedCliente.identificacion}}">
+    </div>
+
+    <div class="col-md-5">
+      <label for="email">Email:</label>
+      <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email" required
+       value="{{this.serviceCliente.selectedCliente.email}}">
+    </div>
+
+     <div class="col-md-5">
+      <label for="numero">Numero:</label>
+      <input formControlName="numero" placeholder="Numero" name="numero" class="form-control" id="numero" required value="{{this.serviceTarjeta.selectedTarjetaCredito.numero}}">
+    </div>
+
+    <div class="col-md-5">
+      <label for="franquisia">Franquisia:</label>
+      <input formControlName="franquisia" placeholder="Numero" name="franquisia" class="form-control" id="franquisia" required
+      value="{{this.serviceTarjeta.selectedTarjetaCredito.franquisia}}">
+    </div>
+
+    <div class="col-md-5">
+      <label for="cupo">Cupo:</label>
+      <input formControlName="cupo" placeholder="Cupo" name="cupo" class="form-control" id="cupo" required
+      value="{{this.serviceTarjeta.selectedTarjetaCredito.cupo}}">
+    </div>
+
+    <div class="col-md-5">
+      <label for="fechaVencimiento">Fecha vencimiento:</label>
+      <input formControlName="fechaVencimiento" placeholder="Fecha vencimiento" name="fechaVencimiento" class="form-control" id="fechaVencimiento" required
+       value="{{this.serviceTarjeta.selectedTarjetaCredito.fechaVencimiento}}">
+    </div>
+   
+</div>
+<br>
+  
+
+   <button class="btn btn-success">Actualizar</button>    
+      </form>
+    </div>
+    <div class="modal-footer">
+        <button  (click)="cerrar()" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+
+
+  
+  

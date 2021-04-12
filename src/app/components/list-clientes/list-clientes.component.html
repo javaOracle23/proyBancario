@@ -1,0 +1,64 @@
+<div class="row mt-5">
+<div class="col">
+    <div class="col-xs-10 col-sm-10 col-md-100 mx-auto">
+        <div class="card">  
+            <div class="card-body text-left">   
+
+  <h2 class="text-center">Clientes</h2> 
+ <form [formGroup]="addForm" (ngSubmit)="onSubmitConsultar()">
+    <div class="form-group">
+      <label for="identificacion">Cedula:</label>
+      <input formControlName="identificacion" placeholder="Cedula" name="identificacion" class="form-control" id="identificacion" required>       
+  </div>
+  <button class="btn btn-success">Consultar</button> 
+</form>  
+
+<form [formGroup]="allForm" (ngSubmit)="onSubmitTodos()">
+    <div class="form-group">      
+  </div>
+  <button class="btn btn-success">Todos</button> 
+</form>  
+  
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th class="hidden">Id</th>
+        <th>nombres</th>
+         <th>apellidos</th>
+        <th>nro documento</th> 
+         <th>email</th>       
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let cliente of clientes | paginate: { itemsPerPage: 2, currentPage: pageActual }">      
+        <td class="hidden">{{ cliente.id }}</td>
+        <td>{{ cliente.nombres }}</td>
+        <td>{{ cliente.apellidos }}</td>  
+        <td>{{ cliente.identificacion }}</td>       
+         <td>{{ cliente.email }}</td>  
+        <td>
+          <button type="button" (click)="editarCliente(cliente)" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+              Editar
+            </button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table> 
+  <pagination-controls (pageChange)="pageActual = $event"
+  previousLabel=""
+  nextLabel=""
+  screenReaderPaginationLabel="Pagination"
+  screenReaderPageLabel="page"
+  maxSize="9"
+  directionLinks="true"
+  autoHide="true"
+  responsive="true"></pagination-controls>
+</div>
+</div>
+</div>
+</div>
+</div>
+<app-edit-cliente></app-edit-cliente>
